@@ -6,7 +6,6 @@ def solution(operations):
 
     for oper in operations:
         act, num = oper.split(" ")
-
         if act == "I":
             heapq.heappush(heap, int(num))
         else:
@@ -16,18 +15,14 @@ def solution(operations):
                     heap_max += heapq.nlargest(1, heap)
                     heap = list(set(heap) - set(heap_max))
                     heapq.heapify(heap)
-
-
                 else:
                     heapq.heappop(heap)
             else:
                 pass
-
     if heap:
         answer = [max(heap), min(heap)]
     else:
         answer = [0, 0]
-
     return answer
 
 
